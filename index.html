@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FH Praditya | Strategic Data Consultant</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <style>
+        :root {
+            --primary: #0078D4;       
+            --primary-dark: #005a9e;
+            --dark-bg: #0f172a;       
+            --card-bg: #1e293b;       
+            --accent: #F5C211;        
+            --text-light: #f1f5f9;
+            --text-gray: #64748b;
+            --white: #ffffff;
+            --radius: 12px;
+            --wa-color: #25D366; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            background-color: #0f172a; 
+            background-image: 
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.85)),
+                url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: scroll;
+            color: var(--white); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px 80px; position: relative;
+        }
+        header::after {
+            content: ''; position: absolute; bottom: -60px; right: -80px; width: 550px; height: 550px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg');
+            background-repeat: no-repeat; background-size: contain; opacity: 0.06; transform: rotate(-10deg); z-index: 1; pointer-events: none;
+        }
+        .hero-container { max-width: 1000px; width: 100%; position: relative; z-index: 2; text-align: center; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; box-shadow: 0 0 40px rgba(0, 120, 212, 0.4); margin-bottom: 30px; }
+        h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 25px; font-weight: 800; background: linear-gradient(to right, #fff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtext { font-size: 1.35rem; color: #f8fafc; max-width: 900px; margin: 0 auto 50px; font-weight: 400; line-height: 1.8; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero-subtext b { color: var(--accent); font-weight: 700; }
+        .cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 35px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 1rem; cursor: pointer; display: inline-block;}
+        .btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); box-shadow: 0 10px 25px rgba(0, 120, 212, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); background: var(--primary-dark); }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
+
+        /* --- TECH STACK --- */
+        .tech-bar { background: white; padding: 40px 20px; border-bottom: 1px solid #e2e8f0; }
+        .tech-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .tech-label { display: block; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; color: #64748b; margin-bottom: 25px; font-weight: 700; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; align-items: center; }
+        .tech-item { display: flex; flex-direction: column; align-items: center; gap: 10px; font-weight: 600; color: #475569; padding: 15px; border-radius: 12px; transition: 0.3s; border: 1px solid transparent; }
+        .tech-item:hover { background: #f1f5f9; border-color: #e2e8f0; transform: translateY(-3px); }
+        .tech-item i { font-size: 2rem; }
+
+        /* --- ANALYTICS --- */
+        .approach-section { padding: 80px 20px; background: #fff; }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; color: #1e293b; font-weight: 800; }
+        .section-header p { color: #64748b; font-size: 1.1rem; }
+        .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .approach-card { background: #f8fafc; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; transition: 0.3s; position: relative; overflow: hidden; }
+        .approach-card::before { content:''; position: absolute; top:0; left:0; width: 100%; height: 4px; background: var(--primary); }
+        .approach-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-color: var(--primary); }
+        .approach-card h4 { color: #1e293b; margin-bottom: 15px; font-size: 1.1rem; font-weight: 700; }
+        .approach-card p { color: #475569; line-height: 1.6; font-size: 0.95rem; }
+        .step-num { display: inline-block; background: var(--primary); color: white; width: 30px; height: 30px; text-align: center; line-height: 30px; border-radius: 50%; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem; }
+
+        /* --- PORTFOLIO --- */
+        .standard-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .portfolio-item { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: 0.3s; border: 1px solid #f1f5f9; }
+        .portfolio-item:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .img-wrapper { height: 180px; overflow: hidden; position: relative; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .cat-tag { position: absolute; top: 15px; left: 15px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .p-content { padding: 25px; }
+        .p-content h4 { font-size: 1.15rem; margin-bottom: 8px; color: #1e293b; font-weight: 700; }
+        .p-content p { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; height: 40px; }
+
+        /* --- TESTIMONIALS (FIXED SCROLL WITH ARROWS) --- */
+        .testi-section { 
+            background-color: var(--dark-bg); color: white; 
+            padding: 100px 20px; position: relative; overflow: hidden; 
+        }
+        .testi-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--accent), var(--primary)); }
+        .testi-header { text-align: center; margin-bottom: 50px; }
+        .testi-header h2 { font-size: 2.2rem; font-weight: 800; color:white; }
+        
+        .testi-wrapper { position: relative; max-width: 1200px; margin: 0 auto; }
+
+        .testi-grid { 
+            display: flex; gap: 30px; 
+            overflow-x: auto; 
+            padding-bottom: 30px; 
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .testi-grid::-webkit-scrollbar { display: none; }
+
+        .testi-card { 
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 35px; border-radius: 16px; 
+            backdrop-filter: blur(5px); transition: 0.3s;
+            width: 400px; min-width: 400px; flex: 0 0 auto;
+            scroll-snap-align: center;
+        }
+        .testi-card:hover { transform: translateY(-5px); border-color: var(--primary); background: rgba(255,255,255,0.08); }
+        .testi-quote { font-size: 1.5rem; color: var(--accent); margin-bottom: 20px; }
+        .testi-text { font-style: italic; color: #cbd5e1; margin-bottom: 25px; line-height: 1.7; font-size: 0.95rem; }
+        .testi-author h5 { color: white; font-weight: 700; margin-bottom: 3px; font-size: 1.1rem; }
+        .testi-author span { color: var(--primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .testi-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.05); color: var(--accent);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 50px; height: 50px; border-radius: 50%;
+            font-size: 1.2rem; cursor: pointer; z-index: 10;
+            transition: 0.3s; backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .testi-arrow:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .testi-arrow-left { left: -25px; }
+        .testi-arrow-right { right: -25px; }
+
+        /* --- PRICING & CONSULTATION --- */
+        /* Consultation Wide Card */
+        .consult-card-wide {
+            background: white; border: 2px dashed var(--primary); border-radius: 16px;
+            padding: 30px 40px; margin-bottom: 40px; display: flex;
+            align-items: center; justify-content: space-between; gap: 30px;
+            box-shadow: 0 5px 15px rgba(0, 120, 212, 0.05); flex-wrap: wrap;
+        }
+        .consult-content { flex: 1; }
+        .consult-content h3 { font-size: 1.5rem; color: #1e293b; margin-bottom: 5px; }
+        .consult-content p { color: #64748b; margin-bottom: 15px; }
+        .consult-tags span { background: #f1f5f9; color: #475569; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-right: 8px; }
+        .consult-action { text-align: center; min-width: 200px; }
+        .consult-price { font-size: 1.8rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 10px; }
+        .consult-price small { font-size: 0.9rem; color: #94a3b8; font-weight: 400; }
+
+        /* Standard Grid */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .price-card { background: white; padding: 40px; border-radius: 16px; border: 1px solid #e2e8f0; position: relative; display: flex; flex-direction: column; }
+        .price-card.featured { border: 2px solid var(--primary); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .price-tag { font-size: 2rem; font-weight: 800; color: var(--primary); margin: 20px 0; padding-bottom: 20px; border-bottom: 1px solid #f1f5f9; }
+        .feat-list { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .feat-list li { margin-bottom: 15px; color: #475569; display: flex; gap: 12px; align-items: start; font-size: 0.95rem; }
+        .feat-list li i { color: var(--primary); margin-top: 4px; }
+        .policy-note { background: #f8fafc; padding: 15px; border-radius: 8px; font-size: 0.85rem; color: #64748b; margin-top: auto; border: 1px solid #e2e8f0; }
+
+        /* --- LEARNING HUB --- */
+        .learning-section { background-color: var(--dark-bg); color: var(--text-light); padding: 100px 20px; position: relative; border-top: 1px solid rgba(255,255,255,0.1); }
+        .book-category-title { color: var(--accent); font-weight: 800; letter-spacing: 1px; margin-bottom: 30px; text-transform: uppercase; font-size: 0.9rem; text-align: left; border-left: 4px solid var(--accent); padding-left: 15px; }
+        .pro-book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-bottom: 80px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .pro-book-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 30px; display: flex; gap: 25px; align-items: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: 0.3s; }
+        .pro-book-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .pro-cover { width: 140px; border-radius: 8px; box-shadow: -5px 5px 15px rgba(0,0,0,0.5); flex-shrink: 0; }
+        .pro-info h3 { font-size: 1.4rem; color: white; margin-bottom: 10px; line-height: 1.3; }
+        .pro-info p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
+        .smp-book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .smp-card { background: #1e293b; padding: 20px; border-radius: 16px; text-align: center; transition: 0.3s; border: 1px solid #334155; }
+        .smp-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .smp-cover { width: 100%; border-radius: 8px; margin-bottom: 15px; aspect-ratio: 2/3; object-fit: cover; background: #334155; }
+
+        /* BUNDLING CARD */
+        .bundling-card {
+            background: linear-gradient(90deg, #F5C211 0%, #d4a000 100%);
+            border-radius: 16px; padding: 20px 30px; max-width: 1200px; margin: 0 auto 40px;
+            display: flex; align-items: center; justify-content: space-between;
+            color: #0f172a; box-shadow: 0 10px 25px rgba(245, 194, 17, 0.2); flex-wrap: wrap; gap: 20px;
+        }
+        .bundling-text h4 { font-size: 1.5rem; margin-bottom: 5px; font-weight: 800; }
+        .bundling-text p { font-size: 1rem; margin: 0; font-weight: 500; }
+        .bundling-price { background: #0f172a; color: #fff; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 1.2rem; }
+        
+        /* --- FLOATING WA BUTTON --- */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--wa-color); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000; text-decoration: none; transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .float-wa:hover { transform: scale(1.1); background-color: #1ebc57; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- MODAL GLOBAL --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .modal-content { background: white; width: 90%; max-width: 600px; max-height: 85vh; border-radius: 16px; position: relative; display: flex; flex-direction: column; animation: fadeIn 0.3s ease; color: var(--text-dark); overflow: hidden; }
+        .modal-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+        .modal-header h3 { color: var(--primary); font-size: 1.1rem; margin: 0; font-weight: 700; }
+        .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b; transition: 0.2s; }
+        .close-btn:hover { color: #ef4444; }
+        .modal-body { padding: 25px; overflow-y: auto; }
+        .toc-box { background: #f1f5f9; border-radius: 8px; padding: 15px; margin-bottom: 25px; }
+        .toc-title { font-size: 0.85rem; font-weight: 800; color: #475569; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .toc-list { list-style: none; padding-left: 0; }
+        .toc-list li { padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; color: #334155; display: flex; justify-content: space-between; }
+        .toc-list li:last-child { border-bottom: none; }
+        .preview-box h4 { color: var(--primary); margin-bottom: 10px; }
+        .preview-text { font-size: 0.95rem; line-height: 1.7; color: #475569; white-space: pre-line; }
+        .dashboard-modal-content { width: 95%; max-width: 1200px; height: 90vh; }
+        .dashboard-frame-container { flex-grow: 1; width: 100%; height: 100%; background: #eee; position: relative; }
+        .dashboard-frame-container iframe { width: 100%; height: 100%; border: none; }
+        .dashboard-footer { padding: 15px; background: #fff; text-align: center; border-top: 1px solid #eee; }
+        .ebook-price { font-size: 1.2rem; font-weight: 800; color: #60a5fa; margin-bottom: 10px; display:block; }
+        .price-strike { font-size: 0.9rem; color: #94a3b8; text-decoration: line-through; margin-right: 10px; font-weight: 400; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.2rem; } 
+            .consult-card-wide { flex-direction: column; text-align: center; }
+            .consult-action { width: 100%; margin-top: 15px; border-top: 1px solid #eee; padding-top: 20px; }
+            .pro-book-card { flex-direction: column; text-align: center; } 
+            .bundling-card { text-align: center; justify-content: center; }
+            .testi-card { width: 300px; min-width: 300px; } 
+            .testi-arrow { display: none; } 
+            .testi-wrapper { padding: 0 20px; }
+            .float-wa { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; } 
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/6285743178455?text=Halo%20Mas%20FH%20Praditya,%20saya%20tertarik%20dengan%20jasa/ebook%20Anda." class="float-wa" target="_blank" title="Hubungi Saya via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="hero-container">
+            <img src="https://i.ibb.co.com/qM8TqsJF/Foto-baru-banget.jpg" alt="FH Praditya" class="profile-img">
+            <h1>Data-Driven Clarity for Business,<br>Future Skills for Students</h1>
+            <div class="hero-subtext">
+                Saya <b>FH Praditya</b>. <br>Mitra Anda dalam membangun Sistem Pelaporan Cerdas <i>(Business Intelligence)</i>, untuk efisiensi operasional perusahaan. <br><br>
+                Saya juga menuangkan pengalaman praktis ini ke dalam <b>Ebook & Kurikulum</b>, menyiapkan anak-anak berpikir logis berbasis data sebelum mereka terjun ke dunia profesional.
+            </div>
+            <div class="cta-group">
+                <a href="#services" class="btn btn-primary"><i class="fas fa-chart-pie"></i> Solusi Bisnis (Jasa)</a>
+                <a href="#learning-center" class="btn btn-secondary"><i class="fas fa-graduation-cap"></i> FH Data Academy (Ebook)</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="tech-bar">
+        <div class="tech-container">
+            <span class="tech-label">Technology Stack Expert</span>
+            <div class="tech-grid">
+                <div class="tech-item"><i class="fas fa-chart-bar" style="color:#F2C811"></i> Power BI</div>
+                <div class="tech-item"><i class="fas fa-file-excel" style="color:#217346"></i> Excel Expert</div>
+                <div class="tech-item"><i class="fas fa-database" style="color:#0078D4"></i> SQL Server</div>
+                <div class="tech-item"><i class="fas fa-server" style="color:#333"></i> Data Warehouse</div>
+                <div class="tech-item"><i class="devicon-python-plain" style="color:#3776AB"></i> Python</div>
+                <div class="tech-item"><i class="devicon-mysql-plain" style="color:#00758F"></i> MySQL</div>
+                <div class="tech-item"><i class="fas fa-file-csv" style="color:#0F9D58"></i> Google Sheets</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="approach-section">
+        <div class="section-header">
+            <h2>Analytical Approach</h2>
+            <p>Data mentah tidak ada artinya. Saya menggunakan 4 tahapan analisis holistik untuk menemukan insight yang benar-benar bisa dieksekusi.</p>
+        </div>
+        <div class="approach-grid">
+            <div class="approach-card"><span class="step-num">1</span><h4>Descriptive Analytics</h4><p><b>"Apa yang terjadi?"</b><br>Menyajikan data historis ke dalam visualisasi dashboard yang elegan dan mudah dipahami, bukan sekedar tabel angka.</p></div>
+            <div class="approach-card"><span class="step-num">2</span><h4>Diagnostic Analytics</h4><p><b>"Mengapa ini terjadi?"</b><br>Menganalisis korelasi antar variabel untuk menemukan akar penyebab (root cause) dari suatu masalah bisnis.</p></div>
+            <div class="approach-card"><span class="step-num">3</span><h4>Predictive Insights</h4><p><b>"Apa yang akan terjadi?"</b><br>Menggunakan tren data dan forecasting untuk memproyeksikan skenario masa depan bisnis Anda.</p></div>
+            <div class="approach-card"><span class="step-num">4</span><h4>Deep Dive Discovery</h4><p><b>"Dimana peluang tersembunyi?"</b><br>Bedah data hingga level transaksional granular untuk menemukan anomali atau potensi profit baru.</p></div>
+        </div>
+    </section>
+
+    <div id="services">
+        <section class="standard-section">
+            <div class="section-header">
+                <h2>Studi Kasus & Portfolio</h2>
+                <p>Pengalaman 10 tahun di berbagai industri.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">MANUFAKTUR</span><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600" alt="Factory"></div>
+                    <div class="p-content"><h4>OEE Machine Efficiency</h4><p>Monitoring produktivitas mesin & analisa downtime.</p><a href="javascript:void(0)" onclick="openDashboard('https://app.powerbi.com/view?r=eyJrIjoiMjZkYTUwZjAtNDQ5NS00NmUxLWIyNGUtOTQ0NjliZDgyYzBlIiwidCI6Ijc4NTdmMGMyLWQ2ZDEtNDdhMC05MDIyLTdlNzk1Zjc4ZWI0NiIsImMiOjEwfQ%3D%3D')" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;"><i class="fas fa-play-circle"></i> View Live Dashboard</a></div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">RETAIL</span><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" alt="Retail"></div>
+                    <div class="p-content"><h4>Multi-Store Sales Trend</h4><p>Analisa performa stok & penjualan per wilayah.</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">CRM</span><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600" alt="CRM"></div>
+                    <div class="p-content"><h4>Sales Pipeline & Leads</h4><p>Melacak konversi calon pelanggan jadi pembeli.</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">FINANCE</span><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600" alt="Finance"></div>
+                    <div class="p-content"><h4>Automated P&L Report</h4><p>Konsolidasi laporan keuangan otomatis & akurat.</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">KESEHATAN</span><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" alt="Health"></div>
+                    <div class="p-content"><h4>Hospital Service Quality</h4><p>Analisa waktu tunggu pasien & fasilitas medis.</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">MARKETING</span><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Marketing"></div>
+                    <div class="p-content"><h4>Campaign ROI Analysis</h4><p>Evaluasi efektivitas budget iklan medsos.</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+                 <div class="portfolio-item">
+                    <div class="img-wrapper"><span class="cat-tag">HR</span><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600" alt="HR"></div>
+                    <div class="p-content"><h4>Employee Retention</h4><p>Prediksi resiko karyawan resign (churn).</p><a href="#" class="view-link" style="color:var(--primary); font-weight:bold; font-size:0.85rem;">View Dashboard</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testi-section">
+            <div class="testi-header">
+                <h2>Apa Kata Mereka?</h2>
+                <p style="color:#cbd5e1;">Testimoni dari klien perusahaan dan pembaca ebook.</p>
+            </div>
+            <div class="testi-wrapper">
+                <button class="testi-arrow testi-arrow-left"><i class="fas fa-chevron-left"></i></button>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <i class="fas fa-quote-left testi-quote"></i>
+                        <p class="testi-text">"Awalnya laporan penjualan kami berantakan dan manual. Setelah dibantu Mas Praditya membuat Dashboard Sales, kami bisa memantau cabang mana yang performanya turun secara realtime. Omzet naik 20% di kuartal pertama!"</p>
+                        <div class="testi-author"><h5>Budi Santoso</h5><span>Sales Manager, PT Retailindo Jaya</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <i class="fas fa-quote-left testi-quote"></i>
+                        <p class="testi-text">"Ebook Laporan Keuangannya sangat daging! Saya yang tadinya buta Power BI, sekarang bisa bikin laporan P&L otomatis. Bos saya sangat terkesan dengan presentasi data akhir bulan kemarin."</p>
+                        <div class="testi-author"><h5>Diana P.</h5><span>Accounting Staff</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <i class="fas fa-quote-left testi-quote"></i>
+                        <p class="testi-text">"Saya beli seri Ebook Anak untuk putra saya kelas 2 SMP. Bahasanya mudah dimengerti dan melatih logika. Sekarang dia malah lebih jago Excel daripada saya. Sangat recommended untuk orang tua!"</p>
+                        <div class="testi-author"><h5>Rina Wati</h5><span>Ibu Rumah Tangga / Entrepreneur</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <i class="fas fa-quote-left testi-quote"></i>
+                        <p class="testi-text">"Servis yang sangat memuaskan. Dasbor yang dibuat sangat clean dan mudah dipahami oleh tim manajemen kami. Proses revisi juga cepat dan komunikatif."</p>
+                        <div class="testi-author"><h5>Hendra Wijaya</h5><span>CEO, StartUp Digital</span></div>
+                    </div>
+                    <div class="testi-card">
+                        <i class="fas fa-quote-left testi-quote"></i>
+                        <p class="testi-text">"Sangat membantu bisnis F&B saya dalam menghitung HPP dan profit harian. Tidak perlu repot hitung manual lagi. Terima kasih Mas FH!"</p>
+                        <div class="testi-author"><h5>Andi S.</h5><span>Owner Kopi Senja</span></div>
+                    </div>
+                </div>
+                <button class="testi-arrow testi-arrow-right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="standard-section" style="background: #fff; border-top: 1px solid #f1f5f9;">
+            <div class="section-header">
+                <h2>Opsi Kerjasama</h2>
+                <p>Pilih solusi yang sesuai dengan kebutuhan bisnis atau karir Anda.</p>
+            </div>
+
+            <div class="consult-card-wide">
+                <div class="consult-content">
+                    <h3><i class="fas fa-video" style="color:var(--primary); margin-right:10px;"></i> 1-on-1 Live Consultation</h3>
+                    <p>Sesi privat via Zoom untuk diskusi karir, review CV data analyst, atau konsultasi kendala teknis (DAX/SQL) secara langsung.</p>
+                    <div class="consult-tags">
+                        <span><i class="fas fa-clock"></i> 45-60 Menit</span>
+                        <span><i class="fas fa-user-friends"></i> Private Session</span>
+                        <span><i class="fas fa-lightbulb"></i> Instant Solution</span>
+                    </div>
+                </div>
+                <div class="consult-action">
+                    <span class="consult-price">Rp 75.000 <small>/ sesi</small></span>
+                    <a href="https://wa.me/6285743178455?text=Halo%20Mas%20FH%20Praditya,%20saya%20ingin%20booking%20sesi%20konsultasi%201-on-1." target="_blank" class="btn btn-primary" style="padding: 10px 25px; font-size: 0.9rem; width:100%;">
+                        Booking Jadwal
+                    </a>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Starter Dashboard</h3>
+                    <p style="font-size:0.9rem; color:#94a3b8;">UMKM / Personal Project</p>
+                    <div class="price-tag">Rp 500k</div>
+                    <ul class="feat-list">
+                        <li><i class="fas fa-check-circle"></i> <b>1-2 Halaman</b> Dashboard</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Data Cleaning</b> Basic</li>
+                        <li><i class="fas fa-check-circle"></i> <b>File Master</b> (.pbix) diberikan</li>
+                    </ul>
+                    <div class="policy-note"><i class="fas fa-sync-alt"></i> 1x Revisi Mayor (3 Hari Kerja)<br><i class="fas fa-info-circle"></i> Tanpa Integrasi Database</div>
+                </div>
+
+                <div class="price-card featured">
+                    <div style="position:absolute; top:0; right:0; background:var(--primary); color:white; padding:5px 15px; border-bottom-left-radius:10px; font-size:0.8rem; font-weight:bold;">BEST VALUE</div>
+                    <h3>Professional Analysis</h3>
+                    <p style="font-size:0.9rem; color:#94a3b8;">Manager / Corporate Dept</p>
+                    <div class="price-tag">Rp 1.2jt</div>
+                    <ul class="feat-list">
+                        <li><i class="fas fa-check-circle"></i> <b>3-5 Halaman</b> Interaktif</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Complex DAX</b> (YoY, Forecasting)</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Custom UI/UX</b> sesuai Brand</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Presentasi</b> Insight via Zoom</li>
+                    </ul>
+                    <div class="policy-note"><i class="fas fa-sync-alt"></i> 2x Revisi Mayor (5 Hari Kerja)<br><i class="fas fa-database"></i> Integrasi Multiple Source</div>
+                </div>
+
+                <div class="price-card">
+                    <h3>Enterprise / Custom</h3>
+                    <p style="font-size:0.9rem; color:#94a3b8;">Company Wide Solution</p>
+                    <div class="price-tag">Call Us</div>
+                    <a href="https://wa.me/6285743178455?text=Halo%20Mas%20FH%20Praditya,%20saya%20ingin%20diskusi%20paket%20Enterprise." target="_blank" class="btn btn-primary" style="text-align:center; margin-bottom:20px; font-size:0.9rem;">
+                        <i class="fab fa-whatsapp"></i> Hubungi WA
+                    </a>
+                    <ul class="feat-list">
+                        <li><i class="fas fa-check-circle"></i> <b>5+ Halaman</b> lintas departemen</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Direct Query</b> (SQL/API/Cloud)</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Data Warehouse</b> Setup</li>
+                        <li><i class="fas fa-check-circle"></i> <b>Training Tim</b> Internal</li>
+                    </ul>
+                    <div class="policy-note"><i class="fas fa-shield-alt"></i> Garansi Maintenance 1 Bulan<br><i class="fas fa-file-contract"></i> NDA Available</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="learning-center" class="learning-section">
+        <div class="standard-section">
+            <div class="section-header">
+                <h2 style="color:white;">FH Data Academy</h2>
+                <p style="color:#94a3b8;">Ebook & Modul pembelajaran untuk Profesional dan Pelajar.</p>
+            </div>
+
+            <div class="book-category-title">SERI PROFESIONAL & BISNIS</div>
+            <div class="pro-book-grid">
+                <div class="pro-book-card">
+                    <img src="https://placehold.co/400x600/1e293b/FFF?text=Finance+Mastery" alt="Finance Ebook" class="pro-cover">
+                    <div class="pro-info">
+                        <h3>Rahasia Laporan Keuangan Interaktif</h3>
+                        <p>Panduan lengkap membuat dashboard P&L, Neraca, dan Cashflow otomatis menggunakan Power BI.</p>
+                        <div style="margin-bottom:15px;">
+                            <span class="price-strike">Rp 299.000</span>
+                            <span class="ebook-price" style="display:inline; color:var(--accent);">Rp 149.000</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openEbookModal('financeBook')">Lihat Daftar Isi</button>
+                    </div>
+                </div>
+                <div class="pro-book-card">
+                    <img src="https://placehold.co/400x600/0f172a/FFF?text=Inventory+Ops" alt="Inventory Ebook" class="pro-cover">
+                    <div class="pro-info">
+                        <h3>Smart Inventory Management</h3>
+                        <p>Teknik mengelola stok, prediksi dead stock, dan analisis perputaran barang (turnover).</p>
+                        <div style="margin-bottom:15px;">
+                            <span class="price-strike">Rp 199.000</span>
+                            <span class="ebook-price" style="display:inline; color:var(--accent);">Rp 99.000</span>
+                        </div>
+                        <button class="btn btn-secondary" onclick="openEbookModal('inventoryBook')">Lihat Daftar Isi</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-category-title" style="border-color:#3b82f6; color:#60a5fa; margin-top:60px;">SERI GENERASI DATA (SMP/SMA)</div>
+            
+            <div class="bundling-card">
+                <div class="bundling-text">
+                    <h4>🔥 Promo Bundling Hemat!</h4>
+                    <p>Dapatkan SEMUA 4 Level Ebook (Level 1 - 4) sekaligus dengan harga spesial.</p>
+                </div>
+                <div class="bundling-price">
+                    <span style="text-decoration:line-through; font-size:0.9rem; font-weight:400; opacity:0.7; margin-right:10px;">Rp 208.000</span> Rp 150.000
+                </div>
+            </div>
+
+            <div class="smp-book-grid">
+                <div class="smp-card">
+                    <img src="https://i.ibb.co.com/Pz4P7zbz/FH-Praditya-1.png" class="smp-cover">
+                    <h4 style="color:white; margin-bottom:5px;">Level 1: Dasar Logika Data</h4>
+                    <span class="ebook-price">Rp 49.000</span>
+                    <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level1')">Preview Isi</button>
+                </div>
+                <div class="smp-card">
+                    <img src="https://i.ibb.co.com/TMRwzy8D/FH-Praditya-2.png" class="smp-cover">
+                    <h4 style="color:white; margin-bottom:5px;">Level 2: Kolaborasi AI</h4>
+                    <span class="ebook-price">Rp 53.000</span>
+                    <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level2')">Preview Isi</button>
+                </div>
+                <div class="smp-card">
+                    <img src="https://i.ibb.co.com/7LL0ZSv/FH-Praditya-3.png" class="smp-cover">
+                    <h4 style="color:white; margin-bottom:5px;">Level 3: Visualisasi Kreatif</h4>
+                    <span class="ebook-price">Rp 53.000</span>
+                    <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level3')">Preview Isi</button>
+                </div>
+                <div class="smp-card">
+                    <img src="https://i.ibb.co.com/Hpx5fh8W/FH-Praditya-4.png" class="smp-cover">
+                    <h4 style="color:white; margin-bottom:5px;">Level 4: Final Project</h4>
+                    <span class="ebook-price">Rp 53.000</span>
+                    <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level4')">Preview Isi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="background:#020617; padding:40px 20px; text-align:center; color:#64748b; border-top:1px solid #1e293b;">
+        <div class="social-links" style="margin-bottom:20px; font-size:1.5rem;">
+            <a href="https://wa.me/6285743178455?text=Halo%20Mas%20FH%20Praditya,%20saya%20tertarik%20dengan%20jasa/ebook%20Anda." target="_blank" style="color:#94a3b8; margin:0 10px;" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fh-praditya/" target="_blank" style="color:#94a3b8; margin:0 10px;" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:komunitasdatavisual@gmail.com" style="color:#94a3b8; margin:0 10px;" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy; 2026 FH Praditya. Strategic Data Consultant.</p>
+    </footer>
+
+    <div class="modal-overlay" id="ebookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Judul Buku</h3>
+                <button class="close-btn" onclick="closeEbookModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="toc-box">
+                    <div class="toc-title">DAFTAR ISI</div>
+                    <ul class="toc-list" id="modalToc"></ul>
+                </div>
+                <div class="preview-box">
+                    <h4>Pratinjau Materi</h4>
+                    <div class="preview-text" id="modalPreview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="dashboardModal">
+        <div class="modal-content dashboard-modal-content">
+            <div class="modal-header">
+                <h3>Live Preview Dashboard</h3>
+                <button class="close-btn" onclick="closeDashboard()">&times;</button>
+            </div>
+            <div class="modal-body" style="height:100%; padding:0; display:flex; flex-direction:column;">
+                <div class="dashboard-frame-container">
+                    <iframe id="dashFrame" src="" allowFullScreen="true"></iframe>
+                </div>
+                <div class="dashboard-footer">
+                    <a id="dashFullBtn" href="" target="_blank" class="btn btn-primary" style="padding: 10px 25px; font-size: 0.9rem;">
+                        <i class="fas fa-external-link-alt"></i> Buka Full Screen di Tab Baru
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // EBOOK LOGIC
+        const booksDB = {
+            'financeBook': { title: "Rahasia Laporan Keuangan Interaktif", toc: ["Bab 1: Transformasi Data Keuangan Excel ke Power BI", "Bab 2: Data Modelling: Chart of Accounts (COA)", "Bab 3: Rumus DAX Wajib (YTD, YoY, Variance)", "Bab 4: Mendesain Dashboard CFO-Ready"], preview: "Banyak profesional keuangan terjebak dalam 'Neraka Excel'..." },
+            'inventoryBook': { title: "Smart Inventory Management", toc: ["Bab 1: Masalah Klasik Stok", "Bab 2: Menghitung Inventory Turnover", "Bab 3: Prediksi Dead Stock", "Bab 4: Visualisasi Gudang"], preview: "Stok adalah uang yang berhenti..." },
+            'level1': { title: "Level 1: Dasar Logika Data", toc: ["Bab 1: Kenapa Youtuber Tahu Kesukaanmu?", "Bab 2: Mengenal Baris dan Kolom", "Bab 3: Grafik Batang Pertamamu", "Bab 4: Data itu Bercerita"], preview: "Halo adik-adik! Pernah nggak sih kalian bingung..." },
+            'level2': { title: "Level 2: Kolaborasi AI", toc: ["Bab 1: Berkenalan dengan ChatGPT", "Bab 2: AI Merapikan Tabel", "Bab 3: Etika AI", "Bab 4: Teman Pintar"], preview: "Sekarang kita punya teman pintar bernama AI..." },
+            'level3': { title: "Level 3: Visualisasi Kreatif", toc: ["Bab 1: Warna yang Memanjakan", "Bab 2: Jangan Pakai Pie Chart", "Bab 3: Infografis Keren", "Bab 4: Presentasi"], preview: "Data yang jelek nggak ada yang mau lihat..." },
+            'level4': { title: "Level 4: Final Project", toc: ["Bab 1: Studi Kasus Toko Game", "Bab 2: Game Terlaris", "Bab 3: Waktu Terbaik Jualan", "Bab 4: Laporan Akhir"], preview: "Saatnya praktek nyata!..." }
+        };
+
+        function openEbookModal(bookKey) {
+            const data = booksDB[bookKey];
+            if(!data) return;
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalPreview').innerText = data.preview;
+            const tocList = document.getElementById('modalToc');
+            tocList.innerHTML = "";
+            data.toc.forEach(chapter => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${chapter}</span> <i class="fas fa-lock" style="color:#cbd5e1; font-size:0.8rem;"></i>`;
+                tocList.appendChild(li);
+            });
+            document.getElementById('ebookModal').style.display = 'flex';
+        }
+        function closeEbookModal() { document.getElementById('ebookModal').style.display = 'none'; }
+
+        // DASHBOARD LOGIC
+        function openDashboard(url) {
+            const modal = document.getElementById('dashboardModal');
+            const iframe = document.getElementById('dashFrame');
+            const btn = document.getElementById('dashFullBtn');
+            iframe.src = url; 
+            btn.href = url;   
+            modal.style.display = 'flex';
+        }
+        function closeDashboard() {
+            const modal = document.getElementById('dashboardModal');
+            const iframe = document.getElementById('dashFrame');
+            modal.style.display = 'none';
+            iframe.src = ""; 
+        }
+
+        // AUTO SCROLL TESTIMONIAL WITH CONTROLS
+        const slider = document.querySelector('.testi-grid');
+        const leftBtn = document.querySelector('.testi-arrow-left');
+        const rightBtn = document.querySelector('.testi-arrow-right');
+        let isDown = false; let startX; let scrollLeft; let autoScroll;
+
+        function startAutoScroll() {
+            autoScroll = setInterval(() => {
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: 430, behavior: 'smooth' });
+                }
+            }, 3000);
+        }
+
+        startAutoScroll();
+
+        slider.addEventListener('mouseenter', () => { clearInterval(autoScroll); });
+        slider.addEventListener('mouseleave', () => { startAutoScroll(); });
+
+        leftBtn.addEventListener('click', () => { slider.scrollBy({ left: -430, behavior: 'smooth' }); clearInterval(autoScroll); });
+        rightBtn.addEventListener('click', () => { slider.scrollBy({ left: 430, behavior: 'smooth' }); clearInterval(autoScroll); });
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true; slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft;
+            clearInterval(autoScroll);
+        });
+        slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+        slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; startAutoScroll(); });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return; e.preventDefault();
+            const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        window.onclick = function(e) { 
+            if (e.target == document.getElementById('ebookModal')) closeEbookModal(); 
+            if (e.target == document.getElementById('dashboardModal')) closeDashboard(); 
+        }
+    </script>
+</body>
+</html>
