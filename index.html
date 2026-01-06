@@ -25,7 +25,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* FIX: Mencegah scroll samping di HP */
         html, body {
             font-family: 'Outfit', sans-serif;
             background-color: #f8fafc;
@@ -143,14 +142,21 @@
         .pro-book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 80px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         .pro-book-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 20px; padding: 30px; display: flex; gap: 25px; align-items: center; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: 0.3s; }
         .pro-book-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .pro-cover { width: 140px; border-radius: 8px; box-shadow: -5px 5px 15px rgba(0,0,0,0.5); flex-shrink: 0; }
+        
+        /* Modifikasi Cover agar Clickable */
+        .pro-cover { width: 140px; border-radius: 8px; box-shadow: -5px 5px 15px rgba(0,0,0,0.5); flex-shrink: 0; cursor: pointer; transition: 0.2s; }
+        .pro-cover:hover { transform: scale(1.05); }
+
         .pro-info h3 { font-size: 1.4rem; color: white; margin-bottom: 10px; line-height: 1.3; }
         .pro-info p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
         
         .smp-book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
         .smp-card { background: #1e293b; padding: 20px; border-radius: 16px; text-align: center; transition: 0.3s; border: 1px solid #334155; }
         .smp-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .smp-cover { width: 100%; border-radius: 8px; margin-bottom: 15px; aspect-ratio: 2/3; object-fit: cover; background: #334155; }
+        
+        /* Modifikasi Cover SMP agar Clickable */
+        .smp-cover { width: 100%; border-radius: 8px; margin-bottom: 15px; aspect-ratio: 2/3; object-fit: cover; background: #334155; cursor: pointer; transition: 0.2s; }
+        .smp-cover:hover { transform: scale(1.03); }
 
         /* BUNDLING CARD */
         .bundling-card {
@@ -167,8 +173,8 @@
         .ebook-price { font-size: 1.2rem; font-weight: 800; color: #60a5fa; margin-bottom: 10px; display:block; }
         .price-strike { font-size: 0.9rem; color: #94a3b8; text-decoration: line-through; margin-right: 10px; font-weight: 400; }
 
-        /* --- PROGRESS BADGE GIMMICK (REVISED - MORE VISIBLE) --- */
-        .cover-wrapper { position: relative; display: inline-block; width: 100%; }
+        /* --- PROGRESS BADGE GIMMICK --- */
+        .cover-wrapper { position: relative; display: inline-block; width: auto; /* Disesuaikan agar wrapper mengikuti gambar */ }
         .progress-badge {
             position: absolute; top: 15px; right: 15px;
             background: linear-gradient(135deg, #FFD700 0%, #F5C211 100%);
@@ -210,10 +216,27 @@
         .toc-list li:last-child { border-bottom: none; }
         .preview-box h4 { color: var(--primary); margin-bottom: 10px; }
         .preview-text { font-size: 0.95rem; line-height: 1.7; color: #475569; white-space: pre-line; }
+        
         .dashboard-modal-content { width: 95%; max-width: 1200px; height: 90vh; }
         .dashboard-frame-container { flex-grow: 1; width: 100%; height: 100%; background: #eee; position: relative; }
         .dashboard-frame-container iframe { width: 100%; height: 100%; border: none; }
         .dashboard-footer { padding: 15px; background: #fff; text-align: center; border-top: 1px solid #eee; }
+
+        /* --- IMAGE PREVIEW MODAL --- */
+        #imageModal .modal-content {
+            background: transparent; box-shadow: none; border: none;
+            width: auto; max-width: 95%; height: auto; max-height: 95vh;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #modalCoverImage {
+            max-width: 100%; max-height: 85vh; object-fit: contain;
+            border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        #imageModal .close-btn {
+            position: absolute; top: -40px; right: 0; color: white; font-size: 2rem;
+            background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+        }
 
         @media (max-width: 768px) { 
             h1 { font-size: 2.2rem; } 
@@ -437,7 +460,7 @@
             <div class="book-category-title">SERI PROFESIONAL & BISNIS</div>
             <div class="pro-book-grid">
                 <div class="pro-book-card">
-                    <img src="https://placehold.co/400x600/1e293b/FFF?text=Finance+Mastery" alt="Finance Ebook" class="pro-cover">
+                    <img src="https://placehold.co/400x600/1e293b/FFF?text=Finance+Mastery" alt="Finance Ebook" class="pro-cover" onclick="openImageModal(this.src)">
                     <div class="pro-info">
                         <h3>Rahasia Laporan Keuangan Interaktif</h3>
                         <p>Panduan lengkap membuat dashboard P&L, Neraca, dan Cashflow otomatis menggunakan Power BI.</p>
@@ -451,7 +474,7 @@
                 <div class="pro-book-card">
                     <div class="cover-wrapper">
                         <div class="progress-badge"><i class="fas fa-tools"></i> 50% Progress</div>
-                        <img src="https://placehold.co/400x600/0f172a/FFF?text=Inventory+Ops" alt="Inventory Ebook" class="pro-cover" style="opacity:0.8;">
+                        <img src="https://placehold.co/400x600/0f172a/FFF?text=Inventory+Ops" alt="Inventory Ebook" class="pro-cover" style="opacity:0.8;" onclick="openImageModal(this.src)">
                     </div>
                     <div class="pro-info">
                         <h3>Smart Inventory Management</h3>
@@ -479,19 +502,19 @@
 
             <div class="smp-book-grid">
                 <div class="smp-card">
-                    <img src="https://i.ibb.co.com/Pz4P7zbz/FH-Praditya-1.png" class="smp-cover">
+                    <img src="https://i.ibb.co.com/Pz4P7zbz/FH-Praditya-1.png" class="smp-cover" onclick="openImageModal(this.src)">
                     <h4 style="color:white; margin-bottom:5px;">Level 1: Dasar Logika Data</h4>
                     <span class="ebook-price">Rp 49.000</span>
                     <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level1')">Preview Isi</button>
                 </div>
                 <div class="smp-card">
-                    <img src="https://i.ibb.co.com/TMRwzy8D/FH-Praditya-2.png" class="smp-cover">
+                    <img src="https://i.ibb.co.com/TMRwzy8D/FH-Praditya-2.png" class="smp-cover" onclick="openImageModal(this.src)">
                     <h4 style="color:white; margin-bottom:5px;">Level 2: Kolaborasi AI</h4>
                     <span class="ebook-price">Rp 53.000</span>
                     <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level2')">Preview Isi</button>
                 </div>
                 <div class="smp-card">
-                    <img src="https://i.ibb.co.com/7LL0ZSv/FH-Praditya-3.png" class="smp-cover">
+                    <img src="https://i.ibb.co.com/7LL0ZSv/FH-Praditya-3.png" class="smp-cover" onclick="openImageModal(this.src)">
                     <h4 style="color:white; margin-bottom:5px;">Level 3: Visualisasi Kreatif</h4>
                     <span class="ebook-price">Rp 53.000</span>
                     <button class="btn btn-secondary" style="width:100%; font-size:0.8rem;" onclick="openEbookModal('level3')">Preview Isi</button>
@@ -499,7 +522,7 @@
                 <div class="smp-card">
                     <div class="cover-wrapper">
                         <div class="progress-badge" style="font-size:0.7rem; padding:4px 10px;"><i class="fas fa-fire"></i> 80% Ready</div>
-                        <img src="https://i.ibb.co.com/Hpx5fh8W/FH-Praditya-4.png" class="smp-cover" style="opacity:0.8;">
+                        <img src="https://i.ibb.co.com/Hpx5fh8W/FH-Praditya-4.png" class="smp-cover" style="opacity:0.8;" onclick="openImageModal(this.src)">
                     </div>
                     <h4 style="color:white; margin-bottom:5px;">Level 4: Final Project</h4>
                     <span class="ebook-price">Rp 53.000</span>
@@ -540,6 +563,13 @@
                     <div class="preview-text" id="modalPreview"></div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="imageModal" style="z-index: 10000;">
+        <div class="modal-content" style="background:transparent; box-shadow:none; border:none; width:auto; max-width:95%; height:auto; display:flex; justify-content:center; align-items:center;">
+            <button class="close-btn" onclick="closeImageModal()" style="position:absolute; top:-50px; right:0; color:white; font-size:2.5rem; background:rgba(0,0,0,0.5); width:50px; height:50px; border-radius:50%; display:flex; justify-content:center; align-items:center;">&times;</button>
+            <img id="modalCoverImage" src="" style="max-width:100%; max-height:85vh; object-fit:contain; border-radius:12px; box-shadow:0 20px 50px rgba(0,0,0,0.8);">
         </div>
     </div>
 
@@ -588,6 +618,17 @@
             document.getElementById('ebookModal').style.display = 'flex';
         }
         function closeEbookModal() { document.getElementById('ebookModal').style.display = 'none'; }
+
+        // IMAGE PREVIEW LOGIC
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalCoverImage');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
 
         // DASHBOARD LOGIC
         function openDashboard(url) {
@@ -645,6 +686,7 @@
         window.onclick = function(e) { 
             if (e.target == document.getElementById('ebookModal')) closeEbookModal(); 
             if (e.target == document.getElementById('dashboardModal')) closeDashboard(); 
+            if (e.target == document.getElementById('imageModal')) closeImageModal();
         }
     </script>
 </body>
